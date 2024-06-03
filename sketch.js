@@ -1,3 +1,4 @@
+
 /* MoveNet Skeleton - Steve's Makerspace (most of this code is from TensorFlow)
 
 MoveNet is developed by TensorFlow:
@@ -79,6 +80,27 @@ function drawSkeleton() {
     if (partA.score > 0.1 && partB.score > 0.1) {
       line(partA.x, partA.y, partB.x, partB.y);
       
+    }
+
+    //eye
+    part1 = pose.keypoint[1]
+    part0 = pose.keypoint[2]
+    if(partL.score > 0.1)
+    {
+      ellipse(partL.x,partL.y,50)
+    }
+     if(partR.score > 0.1)
+     {
+       ellipse(partR.x,partR.y,50)
+     }
+
+    partA = pose.keypoints[0]
+    if(partA.score > 0.1)
+    {
+      //fill("#ff0000")
+     // ellipse(partA.x,partA.y,50)
+     // fill("#ffffff")
+      image(noseImg,partA.x+25,partA.y-25,50,50)
     }
     // shoulders to hips
     partA = pose.keypoints[5];
